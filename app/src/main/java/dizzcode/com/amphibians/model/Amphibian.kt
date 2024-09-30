@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-package dizzcode.com.amphibians.ui.theme
+package dizzcode.com.amphibians.model
 
-import androidx.compose.ui.graphics.Color
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-val md_theme_light_background = Color(0xFFFCFDF6)
-val md_theme_light_surface = Color(0xFFFCFDF6)
-val md_theme_light_surfaceVariant = Color(0xFFDEE5D8)
-
-val md_theme_dark_background = Color(0xFF1A1C19)
-val md_theme_dark_surface = Color(0xFF1A1C19)
-val md_theme_dark_surfaceVariant = Color(0xFF424940)
+/**
+ * Data class that defines an amphibian which includes a name, type, description, and image URL.
+ */
+@Serializable
+data class Amphibian(
+    val name: String,
+    val type: String,
+    val description: String,
+    @SerialName("img_src") val imgSrc: String
+)

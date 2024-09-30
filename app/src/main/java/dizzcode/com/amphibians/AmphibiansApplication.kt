@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-package dizzcode.com.amphibians.ui.theme
+package dizzcode.com.amphibians
 
-import androidx.compose.ui.graphics.Color
+import android.app.Application
+import dizzcode.com.amphibians.data.AppContainer
+import dizzcode.com.amphibians.data.DefaultAppContainer
 
-val md_theme_light_background = Color(0xFFFCFDF6)
-val md_theme_light_surface = Color(0xFFFCFDF6)
-val md_theme_light_surfaceVariant = Color(0xFFDEE5D8)
-
-val md_theme_dark_background = Color(0xFF1A1C19)
-val md_theme_dark_surface = Color(0xFF1A1C19)
-val md_theme_dark_surfaceVariant = Color(0xFF424940)
+class AmphibiansApplication : Application() {
+    /** AppContainer instance used by the rest of classes to obtain dependencies */
+    lateinit var container: AppContainer
+    override fun onCreate() {
+        super.onCreate()
+        container = DefaultAppContainer()
+    }
+}

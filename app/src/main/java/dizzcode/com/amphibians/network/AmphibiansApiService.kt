@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-package dizzcode.com.amphibians.ui.theme
+package dizzcode.com.amphibians.network
 
-import androidx.compose.ui.graphics.Color
+import dizzcode.com.amphibians.model.Amphibian
+import retrofit2.http.GET
 
-val md_theme_light_background = Color(0xFFFCFDF6)
-val md_theme_light_surface = Color(0xFFFCFDF6)
-val md_theme_light_surfaceVariant = Color(0xFFDEE5D8)
-
-val md_theme_dark_background = Color(0xFF1A1C19)
-val md_theme_dark_surface = Color(0xFF1A1C19)
-val md_theme_dark_surfaceVariant = Color(0xFF424940)
+interface AmphibiansApiService {
+    @GET("amphibians")
+    suspend fun getAmphibians(): List<Amphibian>
+}
